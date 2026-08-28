@@ -21,7 +21,8 @@ module.exports = async (request, response) => {
     const expectedStartDate = processes
       .filter((process) => process.startDate)
       .sort((a, b) => a.startDate.localeCompare(b.startDate))[0]?.startDate || null;
-    response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
+    // Notion에서 상태를 바꾸면 위젯에도 바로 반영되도록 응답을 캐시하지 않습니다.
+    response.setHeader("Cache-Control", "no-store, max-age=0");
     response.status(200).json({ expectedStartDate, processes });
   } catch (error) { sendError(response, error); }
 };
