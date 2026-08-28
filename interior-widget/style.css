@@ -1,0 +1,145 @@
+:root {
+  --background: #f7f6f2;
+  --card-background: #fffefa;
+  --text: #292825;
+  --muted-text: #77736b;
+  --border: #e7e3db;
+  --accent: #737d64;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Noto Sans KR", system-ui, sans-serif;
+}
+
+.widget {
+  width: min(100%, 340px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card-background);
+  box-shadow: 0 8px 28px rgba(47, 43, 35, 0.06);
+}
+
+.project-header,
+.section {
+  padding: 24px;
+}
+
+.project-header {
+  padding-bottom: 27px;
+  text-align: center;
+}
+
+.section {
+  border-top: 1px solid var(--border);
+}
+
+.today-section {
+  padding-bottom: 26px;
+}
+
+.eyebrow,
+.label,
+.percent {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.eyebrow,
+.label {
+  color: var(--muted-text);
+}
+
+.d-day {
+  margin: 16px 0 8px;
+  font-family: "DM Mono", monospace;
+  font-size: clamp(42px, 14vw, 54px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.08em;
+}
+
+.start-date,
+.helper-text {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 12px;
+}
+
+.content {
+  margin-top: 9px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+.date-range {
+  display: block;
+  color: var(--muted-text);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.empty {
+  color: var(--muted-text);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.today-list {
+  display: grid;
+  gap: 5px;
+}
+
+.today-item::before {
+  content: "·";
+  margin-right: 7px;
+  color: var(--accent);
+}
+
+.progress-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.percent {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+.progress-track {
+  height: 7px;
+  overflow: hidden;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: #ebe8e0;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 500ms ease;
+}
+
+.helper-text {
+  margin-top: 8px;
+  font-size: 11px;
+}

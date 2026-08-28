@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Interior Project Widget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="widget" aria-live="polite">
+      <header class="project-header">
+        <p class="eyebrow">INTERIOR PROJECT</p>
+        <h1 id="d-day" class="d-day">—</h1>
+        <p id="start-date" class="start-date">불러오는 중...</p>
+      </header>
+
+      <section class="section today-section" aria-labelledby="today-label">
+        <p id="today-label" class="label">TODAY</p>
+        <div id="today-content" class="content">불러오는 중...</div>
+      </section>
+
+      <section class="section" aria-labelledby="next-label">
+        <p id="next-label" class="label">NEXT</p>
+        <div id="next-content" class="content">불러오는 중...</div>
+      </section>
+
+      <section class="section" aria-labelledby="progress-label">
+        <div class="progress-heading">
+          <p id="progress-label" class="label">PROGRESS</p>
+          <span id="progress-value" class="percent">0%</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <p id="progress-detail" class="helper-text"></p>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
