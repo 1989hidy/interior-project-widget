@@ -18,7 +18,11 @@ module.exports = async (request, response) => {
         endDate: period?.end || period?.start || null
       };
     });
+    // 착공일은 공정관리 DB에 입력된 시공 기간 중 가장 이른 시작일입니다.
+    const expectedStartDate = processes
+      .filter((process) => process.startDate)
+      .sort((a, b) => a.startDate.localeCompare(b.startDate))[0]?.startDate || null;
     response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
-    response.status(200).json({ processes });
+    response.status(200).json({ expectedStartDate, processes });
   } catch (error) { sendError(response, error); }
 };

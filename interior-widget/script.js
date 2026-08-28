@@ -1,6 +1,6 @@
 /*
  * 데모 모드: API가 아직 없거나 로컬 파일로 index.html을 열었을 때 사용됩니다.
- * 실제 Notion 연결 후에는 /api/project, /api/processes 응답이 자동으로 우선 적용됩니다.
+ * 실제 Notion 연결 후에는 /api/processes 응답이 자동으로 우선 적용됩니다.
  */
 const DEMO_DATA = {
   expectedStartDate: "2026-10-06",
@@ -92,11 +92,9 @@ function escapeHtml(text = "") {
 
 async function loadWidget() {
   try {
-    const [projectResponse, processesResponse] = await Promise.all([fetch("/api/project"), fetch("/api/processes")]);
-    if (!projectResponse.ok || !processesResponse.ok) throw new Error("API 응답 오류");
-    const project = await projectResponse.json();
-    const processes = await processesResponse.json();
-    render({ expectedStartDate: project.expectedStartDate, processes: processes.processes });
+    const response = await fetch("/api/processes");
+    if (!response.ok) throw new Error("API 응답 오류");
+    render(await response.json());
   } catch (error) {
     // file:// 미리보기와 API 설정 전에는 데모 데이터를 보여 줍니다.
     if (location.protocol === "file:" || location.hostname === "localhost") render(DEMO_DATA);
