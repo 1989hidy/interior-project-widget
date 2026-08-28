@@ -1,9 +1,9 @@
 :root {
-  --background: #f7f6f2;      
-  --card-background: #fffefa; 
-  --text: #292825;            
-  --muted-text: #77736b;      
-  --border: #e7e3db;          
+  --background: transparent;
+  --card-background: #ffffff;
+  --text: #37352f;
+  --muted-text: #787774;
+  --border: #e9e9e7;
   --accent: #737d64;          
 }
 
