@@ -4,8 +4,7 @@ module.exports = async (request, response) => {
   try {
     const notion = getNotion();
     const pages = await queryAll(notion, {
-      database_id: process.env.NOTION_PROCESS_DATABASE_ID,
-      sorts: [{ property: "순서", direction: "ascending" }]
+      database_id: process.env.NOTION_PROCESS_DATABASE_ID
     });
     const processes = pages.map((page) => {
       const period = getDate(page.properties["시공 기간"]);
